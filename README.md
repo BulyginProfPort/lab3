@@ -72,9 +72,6 @@
 - void map(function<T(T)> f, List \*list, Tree &b) - реализация функции map (возведение в квадрат)
 - void where(function<bool(T)> f,List \*list, Tree &b) - реализация функции where (создает новое дерево, элементы которого удовлетворяют заданному условию)
 - void void merge(List \*\*list1, List \*\*list2) - Слияние двух деревьев
-
-- void ejection_el(tree&, T) - Извлечение поддерева по элементу
-- bool search_tree(tree &A) - Поиск (введенного) дерева
-
+- void extraction(tree&, T) - Извлечение поддерева по элементу
 - bool searchElement(T data, List \*\*list) - Поиск элемента в дереве
 - bool equalityTree(List \*\*list1, List \*\*list2) - Равенство деревьев (данная функция понадобилась для тестирования)
