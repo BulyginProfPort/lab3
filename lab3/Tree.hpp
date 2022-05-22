@@ -166,9 +166,6 @@ private:
             }
             return false;
         }
-        bool searchSubList(List *list1, List *list2){
-            
-        }
         
         //ADD ELEMENT IN TREE
         void add(T value, List** tmp){

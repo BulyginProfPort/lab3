@@ -469,7 +469,7 @@ int main() {
                        "In computer science, a ternary tree is a tree data structure in which each node has at most three child nodes, usually distinguished as left and right. "
                        "Nodes with children are parent nodes, and child nodes may contain references to their parents. "
                        "Outside the tree, there is often a reference to the root node (the ancestor of all nodes), if it exists. "
-                       "Any node in the data structure can be reached by starting at root node and repeatedly following references to either the left  or right child.\n"
+                       "Any node in the data structure can be reached by starting at root node and repeatedly following references to either the left or right child.\n"
                        "\n                                22.05.2022\n"
                        "                                            Bulygin Fedor\n");
             }
