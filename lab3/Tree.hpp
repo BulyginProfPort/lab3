@@ -144,35 +144,30 @@ private:
         List(){
             right = left = nullptr;
         }
-        T GetValue(){
+        T getValue(){
             return value;
         }
         void SetValue(T x){
             value = x;
         }
+        //SEARCHERS IN TREE
         bool searchElement(T data, List **list){
             if (*list){
                 if (data > (*list)->value){
-                    if (searchElement(data, &(*list)->right) ){
-                        return true;
-                    }
-                    else{
-                        return false;
-                    }
+                    return searchElement(data, &(*list)->right);
+                    
                 }
                 else if (data < (*list)->value){
-                    if ( searchElement(data, &(*list)->right) ){
-                        return true;
-                    }
-                    else{
-                        return false;
-                    }
+                    return searchElement(data, &(*list)->left);
                 }
                 else if (data == (*list)->value){
                     return true;
                 }
             }
             return false;
+        }
+        bool searchSubList(List *list1, List *list2){
+            
         }
         
         //ADD ELEMENT IN TREE
@@ -188,7 +183,7 @@ private:
                         (*tmp)->right->left = (*tmp)->right->right = nullptr;
                     }
                 }
-                else{
+                else if (value < (*tmp)->value){
                     if ( (*tmp)->left){
                         add(value,&(*tmp)->left);
                     }
@@ -197,6 +192,9 @@ private:
                         (*tmp)->left->value = value;
                         (*tmp)->left->left = (*tmp)->left->right = nullptr;
                     }
+                }
+                else if (value == (*tmp)->value){
+                    return;
                 }
             }
             else{
@@ -247,20 +245,21 @@ private:
         }
         void merge(List **list1, List **list2){
             if  (*list1){
-                (*list2)->add( (*list1)->GetValue(), &(*list2) );
+                (*list2)->add( (*list1)->getValue(), &(*list2) );
                 merge( &(*list1)->left, &(*list2) );
                 merge( &(*list1)->right, &(*list2));
             }
         }
         
-        //COMPARING TWO TREES
+        //COMPARING TWO TREES (FOR TESTS)
         bool equalityTree(List **list1, List **list2){
             if ( (*list1) == (*list2) ){
                 return true;
             }
             return ( ( (*list1)->value == (*list2)->value ) && equalityTree( &(*list1)->left, &(*list2)->left) && equalityTree( &(*list1)->right, &(*list2)->right) );
         }
-        void Print(std::string &byPass) const {
+        
+        void print(std::string &byPass) const {
             if (byPass == "LeftRootRight"){
                 LeftRightRoot();
             }
@@ -280,6 +279,30 @@ private:
                 RootLeftRight();
             }
         }
+        
+
+        //GETTING TREE BY VALUE
+        List* getTreeByElement(List **list1, T value){
+            if ( (*list1) ){
+                if ( (*list1)->value == value){
+                    return (*list1);
+                }
+                else if ( value < (*list1)->value ){
+                    return getTreeByElement( &(*list1)->left, value);
+                }
+                else if (value > (*list1)->value) {
+                    return getTreeByElement( &(*list1)->right, value);
+                }
+            }
+                return nullptr;
+        }
+        
+        void extraction(List **list1, List **list2,T value){
+            if (getTreeByElement( &(*list1), value) != nullptr){
+                (*list2) = getTreeByElement( &(*list1), value);
+
+            }
+        }
         void freeTree(List** list){
             if (*list){
                 freeTree( &(*list)->right);
@@ -287,7 +310,6 @@ private:
                 delete (*list);
             }
         }
-        
         ~List(){}
     };
     
@@ -303,7 +325,7 @@ public:
     
     //GETS
     T getvalue(){
-        return root->GetValue();
+        return root->getValue();
     }
     int getSize(){
         return size;
@@ -318,7 +340,7 @@ public:
     
     //SETS
     void setRoot(T data){
-        root->SetValue(data);
+        root->setValue(data);
     }
     void setSize(int newSize){
         size = newSize;
@@ -343,7 +365,11 @@ public:
             root->merge(&root, &b.root);
         }
     }
-
+    void extraction(T value, Tree &a){
+        if (root){
+            root->extraction(&root, &a.root, value);
+        }
+    }
     //SEARCHERS
     bool searchElement(T data){
         if ( root->searchElement(data, &root) ){
@@ -355,14 +381,9 @@ public:
             return false;
         }
     }
-        void Print(std::string &byPass)const {
+    void print(std::string &byPass)const {
         if (root){
-            root->Print(byPass);
-        }
-    }
-    
-    void delElement(T value){
-        if (root){
+            root->print(byPass);
         }
     }
     

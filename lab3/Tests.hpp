@@ -22,11 +22,13 @@ Person quadPerson(Person a);
 bool testMapInt();
 bool testWhereInt();
 bool testMergeInt();
+bool testExtractionInt();
 bool testMapCmplx();
 bool testWhereCmplx();
 bool testMergeCmplx();
+bool testExtractionCmplx();
 bool testMapPerson();
 bool testWherePerson();
 bool testMergePerson();
-bool AllTests();
+void AllTests();
 #endif /* Tests_hpp */

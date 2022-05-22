@@ -125,7 +125,6 @@ bool testWhereInt(){
 ///                                                  |      2679
 ///                                                    361     |
 
-
 bool testMergeInt(){
     Tree<int> tree1;
     tree1.add(0);
@@ -158,6 +157,27 @@ bool testMergeInt(){
         cout<<"Complete testMergeInt"<<endl;
     }
     return (tree3 == tree1);
+}
+
+bool testExtractionInt(){
+    Tree<int> tree1;
+    tree1.add(3);
+    tree1.add(8);
+    tree1.add(-3);
+    tree1.add(-19);
+    tree1.add(32);
+    tree1.add(25);
+    Tree<int> tree2;
+    tree2.add(8);
+    tree2.add(32);
+    tree2.add(25);
+    
+    Tree<int> tree3;
+    tree1.extraction(8, tree3);
+    if (tree3 == tree2){
+        cout<<"Complete testExtractionInt"<<endl;
+    }
+    return (tree3 == tree2);
 }
 
 //TESTS FOR CLASS COMPLEX
@@ -273,6 +293,31 @@ bool testMergeCmplx(){
     return (tree3 == tree1);
 }
 
+bool testExtractionCmplx(){
+    class Complex n11(-1,-1),
+                  n12(2,-4),
+                  n13(-3,5),
+                  n14(3,1),
+                  n15(3,8);
+    Tree<class Complex> tree1;
+    tree1.add(n11);
+    tree1.add(n12);
+    tree1.add(n13);
+    tree1.add(n14);
+    tree1.add(n15);
+    Tree<class Complex> tree2;
+    tree2.add(n12);
+    tree2.add(n13);
+    tree2.add(n14);
+    tree2.add(n15);
+    
+    Tree<class Complex> tree3;
+    tree1.extraction(n12, tree3);
+    if (tree3 == tree2){
+        cout<<"Complete testExtractionCmplx"<<endl;
+    }
+    return (tree3 == tree2);
+}
 //TESTS FOR CLASS PERSON
 bool testMapPerson(){
     class Person n11(13),n21(169),
@@ -368,13 +413,11 @@ bool testMergePerson(){
 }
 
 //AllTests
-bool AllTests(){
+void AllTests(){
     if (testMapInt() && testWhereInt() && testMergeInt() && testMapCmplx() && testWhereCmplx() && testMergeCmplx() && testMapPerson() && testWherePerson() && testMergePerson() ){
         cout << "Tests is completed successfully" << endl;
-        return true;
     }
     else{
         cout << "Fail" << endl;
-        return false;
     }
 }
