@@ -1,11 +1,12 @@
 #include <iostream>
-#include <cmath>
+#include <ctime>
 #include "ComplexNumbers.hpp"
 #include "Person.hpp"
 #include "Tree.hpp"
 #include "Tests.hpp"
 
 int main() {
+    time(NULL);
     std::string byPass[6] = {
                              "LeftRootRight",
                              "RightLeftRoot",
@@ -37,14 +38,17 @@ int main() {
                 int N;
                 cin >> N;
                 getchar();
+                time_t startTime = clock();
                 for (int i = 0; i < N; ++i){
-                    int elem;
-                    cin >> elem;
-                    A.add(elem);
+                    int x = rand()%(N+1);
+                    A.add(x);
                 }
+                time_t endTime = clock();
                 cout << endl;
+                time_t resTime = endTime - startTime;
                 A.print(byPass[5]);
                 cout << endl;
+                cout <<"Time: "<< resTime/1000.0<<endl;
             Repeat1:
                 printf("1 - map (quad)\n"
                        "2 - where (All elements < 0)\n"
@@ -60,16 +64,27 @@ int main() {
                     case '1':
                     {
                         Tree<int> B;
+                        time_t startTime = clock();
                         A.map(quadInt, B);
+                        time_t endTime = clock();
+                        time_t resTime = endTime - startTime;
                         B.print(byPass[5]);
+                        cout<<endl;
+                        cout <<"Time: "<< resTime/1000.0<<endl;
+                        
                         goto Repeat1;
                     }
                         break;
                     case '2':
                     {
                         Tree<int> B;
+                        time_t startTime = clock();
                         A.where(onlyNegativeIntNum, B);
+                        time_t endTime = clock();
+                        time_t resTime = endTime - startTime;
                         B.print(byPass[5]);
+                        cout <<"Time: "<< resTime/1000.0<<endl;
+                        cout<<endl;
                         goto Repeat1;
                     }
                         break;
@@ -82,13 +97,16 @@ int main() {
                         cin >> N;
                         getchar();
                         for (int i = 0; i < N; ++i){
-                            int elem;
-                            cin >> elem;
-                            B.add(elem);
+                            int x = rand()%10+1;
+                            B.add(x);
                         }
+                        time_t startTime = clock();
                         B.merge(A);
-                        cout << endl;
+                        time_t endTime = clock();
+                        time_t resTime = endTime - startTime;
                         A.print(byPass[5]);
+                        cout << endl;
+                        cout <<"Time: "<< resTime/1000.0<<endl;
                         goto Repeat1;
                     }
                         break;
@@ -96,9 +114,10 @@ int main() {
                     {
                         int elem;
                         printf("Eneter element which you want to find\n"
-                                "elem");
+                                "elem: ");
                         cin>>elem;
                         getchar();
+                        time_t startTime = clock();
                         if (A.searchElement(elem) == true){
                             cout << "YES!" << endl;
                         }
@@ -106,6 +125,9 @@ int main() {
                             cout << "NO!" << endl;
                             goto Repeat1;
                         }
+                        time_t endTime = clock();
+                        time_t resTime = endTime - startTime;
+                        cout <<"Time: "<< resTime/1000.0<<endl;
                     }
                         break;
                     case '5':
@@ -149,7 +171,11 @@ int main() {
                                "elem: ");
                         cin>>elem;
                         getchar();
+                        time_t startTime = clock();
                         A.add(elem);
+                        time_t endTime = clock();
+                        time_t resTime = endTime - startTime;
+                        cout <<"Time: "<< resTime/1000.0<<endl;
                         goto Repeat1;
                     }
                         break;
