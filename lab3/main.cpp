@@ -4,15 +4,17 @@
 #include "Person.hpp"
 #include "Tree.hpp"
 #include "Tests.hpp"
+
 int main() {
-    std::string byPass[6] = {"LeftRootRight",
+    std::string byPass[6] = {
+                             "LeftRootRight",
                              "RightLeftRoot",
                              "RightRootLeft",
                              "LeftRightRoot",
                              "RootRightLeft",
                              "RootLeftRight"
-                             };
-    while (true){
+                            };
+    while (1){
         char c[5] = {'\0','\0','\0','\0','\0'};
     Back1:
         //----------------------------back1
@@ -117,7 +119,7 @@ int main() {
                                "\t6. RootLeftRight\n");
                         int k;
                         cin >> k;
-                        printf("        Tree\n\n       ");
+                        printf("        Tree\n       ");
                         if(k == 1){
                             A.print(byPass[0]);
                         }
@@ -160,7 +162,7 @@ int main() {
                         break;
                     case '0':
                     {
-                        return false;
+                        return 0;
                     }
                         break;
                         
@@ -191,12 +193,12 @@ int main() {
                 cout << endl;
             Repeat2:
                 printf("1 - map (quad)\n"
-                        "2 - where\n"
-                        "3 - merger\n"
-                        "4 - search element\n"
-                        "5 - Show a tree\n"
-                        "6 - Filing\n"
-                        "7 - Back\n"
+                       "2 - where\n"
+                       "3 - merger\n"
+                       "4 - search element\n"
+                       "5 - Show a tree\n"
+                       "6 - Filing\n"
+                       "7 - Back\n"
                         "0 - Exit\n");
                 cin >> c[2];
                 getchar();
@@ -303,7 +305,7 @@ int main() {
                         break;
                     case '0':
                     {
-                        return false;
+                        return 0;
                     }
                         break;
                     
@@ -442,7 +444,7 @@ int main() {
                         break;
                     case '0':
                     {
-                        return false;
+                        return 0;
                     }
                         break;
                     
@@ -476,7 +478,7 @@ int main() {
                 break;
             case '6':
             {
-                return false;
+                return 0;
             }
                 break;
             default:

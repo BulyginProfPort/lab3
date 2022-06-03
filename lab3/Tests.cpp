@@ -168,12 +168,11 @@ bool testExtractionInt(){
     tree1.add(32);
     tree1.add(25);
     Tree<int> tree2;
-    tree2.add(8);
     tree2.add(32);
     tree2.add(25);
     
     Tree<int> tree3;
-    tree1.extraction(8, tree3);
+    tree1.extraction(32, tree3);
     if (tree3 == tree2){
         cout<<"Complete testExtractionInt"<<endl;
     }
@@ -414,7 +413,7 @@ bool testMergePerson(){
 
 //AllTests
 void AllTests(){
-    if (testMapInt() && testWhereInt() && testMergeInt() && testMapCmplx() && testWhereCmplx() && testMergeCmplx() && testMapPerson() && testWherePerson() && testMergePerson() ){
+    if (testMapInt() && testWhereInt() && testMergeInt() && testExtractionInt() && testMapCmplx() && testWhereCmplx() && testMergeCmplx() && testExtractionCmplx() && testMapPerson() && testWherePerson() && testMergePerson() ){
         cout << "Tests is completed successfully" << endl;
     }
     else{

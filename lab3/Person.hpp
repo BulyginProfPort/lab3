@@ -40,13 +40,13 @@ public:
         
     }
     //GET
-    std::string getFirstName(std::string newFirstName){
+    std::string getFirstName(){
         return FirstName;
     }
-    std::string getMiddleName(std::string newMiddleName){
+    std::string getMiddleName(){
         return MiddleName;
     }
-    std::string getLastName(std::string newLastName){
+    std::string getLastName(){
         return LastName;
     }
     int GetAge(){
@@ -57,13 +57,13 @@ public:
     void setAge(int newAge){
         age = newAge;
     }
-    void setFirstName(std::string newFirstName){
+    void setFirstName(std::string &newFirstName){
         FirstName = newFirstName;
     }
-    void setMiddleName(std::string newMiddleName){
+    void setMiddleName(std::string &newMiddleName){
         MiddleName = newMiddleName;
     }
-    void setLastName(std::string newLastName){
+    void setLastName(std::string &newLastName){
         LastName = newLastName;
     }
     
