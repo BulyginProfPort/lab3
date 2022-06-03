@@ -80,4 +80,5 @@
 
 Построил график зависимости времени выполнения от количества объёма данных:
 
-![Таблица](https://user-images.githubusercontent.com/89743034/171838618-034fcb17-7f67-4e9c-8bcd-f9b87e76f29b.png)
+![Таблица](https://user-images.githubusercontent.com/89743034/171838840-af87eed0-48cf-471e-8970-0feb3ad114d3.png)
+
